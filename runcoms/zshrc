@@ -12,7 +12,7 @@ fi
 
 # Customize to your needs...
 
-. "$HOME/.local/bin/env"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/jvacek/.lmstudio/bin"
@@ -35,3 +35,7 @@ ghi() {
   fi
   gh issue create  --assignee '@me' --title "$*"
 }
+
+# Terraform completions
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
