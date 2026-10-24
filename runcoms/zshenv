@@ -9,3 +9,8 @@
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+# Secretive's SSH agent. In .zshenv (not .zshrc/.zprofile) so every zsh gets it:
+# non-login, non-interactive, sub-`zsh -c`, scp/sftp, cron.
+export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
+

@@ -11,3 +11,27 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+. "$HOME/.local/bin/env"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/jvacek/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# opencode
+export PATH=/Users/jvacek/.opencode/bin:$PATH
+
+# Tailscale CLI
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
+export PATH="/Applications/Tailscale.app/Contents/MacOS:$PATH"
+
+# quick github issue
+ghi() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: ghi <issue title>" >&2
+    return 1
+  fi
+  gh issue create  --assignee '@me' --title "$*"
+}
